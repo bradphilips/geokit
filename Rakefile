@@ -1,7 +1,11 @@
 require "bundler/gem_tasks"
 require 'rake/testtask'
+require 'rake/clean'
 
-task :default => :release
+CLEAN.include('*.gem')
+CLOBBER.include('pkg')
+
+task :default => :build
 
 Rake::TestTask.new do |t|
   t.libs << "test"
